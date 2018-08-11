@@ -9,7 +9,6 @@ import java.io.IOException;
 @WebFilter
 public class SampleFilter implements Filter {
 
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
