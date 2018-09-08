@@ -1,12 +1,18 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
 
-    <div>
-        <h:form title="Login">
-            <h:inputText title="Name"/>
-            <h:inputSecret title="Pass"/>
-            <h:commandButton value="Submit" />
-        </h:form>
-    </div>
+    <h:form>
+        <p:panelGrid columns="1" styleClass="ui-noborder">
+            <p:tooltip for="name" value="test"/>
+            <p:inputText id="name"/>
+
+            <p:tooltip for="pass" value="123"/>
+            <p:password id="pass"/>
+
+            <p:commandButton value="Submit"/>
+        </p:panelGrid>
+    </h:form>
 
 </ui:composition>
