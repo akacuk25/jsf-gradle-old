@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="../templates/master.xhtml">
+
+    <ui:define name="title">
+        Main Page
+    </ui:define>
+
+    <ui:define name="heading">
+        <h:form>
+            <f:websocket channel="" onmessage="rc()" />
+            <p:remoteCommand name="rc"
+                             actionListener="#{counterBean.plus}"
+                             update="msgs, clable"/>
+            <p:growl id="msgs" showDetail="true"/>
+            <p:toolbar>
+                <f:facet name="left">
+                    <h:outputFormat id="clable" value="Count: {0}! ">
+                        <f:param value="#{counterBean.counter}"/>
+                    </h:outputFormat>
+                </f:facet>
+                <f:facet name="right">
+                    <h:outputFormat value="Welcome {0}! ">
+                        <f:param value="#{authBean.welcome}"/>
+                    </h:outputFormat>
+                    <span class="ui-separator">
+                        <span class="ui-icon ui-icon-grip-dotted-vertical"/>
+                    </span>
+                    <p:commandButton value="LogIn" action="login"/>
+                    <p:commandButton value="SignIn" action="sigin"/>
+                </f:facet>
+            </p:toolbar>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <p:commandButton value="+1" onclick="rc()"/>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="footer">
+        footer...
+    </ui:define>
+
+</ui:composition>

@@ -5,13 +5,13 @@
 
     <h:form>
         <p:panelGrid columns="1" styleClass="ui-noborder">
-            <p:tooltip for="name" value="test"/>
-            <p:inputText id="name"/>
+            <!--<p:tooltip for="name" value="test"/>-->
+            <p:inputText id="name" value="#{authBean.login}"/>
 
-            <p:tooltip for="pass" value="123"/>
-            <p:password id="pass"/>
+            <!--<p:tooltip for="pass" value="123"/>-->
+            <p:password id="pass" value="#{authBean.pass}"/>
 
-            <p:commandButton value="Submit"/>
+            <p:commandButton value="Submit" action="root"/>
         </p:panelGrid>
     </h:form>
 
