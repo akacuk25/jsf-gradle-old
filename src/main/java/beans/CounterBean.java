@@ -1,14 +1,16 @@
 package beans;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.push.Push;
+import javax.faces.push.PushContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 
-@ManagedBean
+@Named
 @ApplicationScoped
 public class CounterBean {
 
@@ -17,6 +19,13 @@ public class CounterBean {
     @PostConstruct
     public void init() {
         // init
+    }
+
+    @Inject @Push(channel = "chat")
+    private PushContext push;
+
+    public void sendMessage(Object message) {
+        push.send(message);
     }
 
     public long getCounter() {

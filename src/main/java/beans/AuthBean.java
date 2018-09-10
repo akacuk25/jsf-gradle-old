@@ -1,16 +1,13 @@
 package beans;
 
-import org.primefaces.component.menubar.Menubar;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.component.UIComponent;
-import java.util.Iterator;
-import java.util.Map;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+import java.io.Serializable;
 
-@ManagedBean
+@Named
 @SessionScoped
-public class AuthBean {
+public class AuthBean implements Serializable {
 
     private String login;
     private String pass;

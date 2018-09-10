@@ -11,7 +11,7 @@
 
     <ui:define name="heading">
         <h:form>
-            <f:websocket channel="" onmessage="rc()" />
+            <f:websocket channel="chat" onmessage="rc()" />
             <p:remoteCommand name="rc"
                              actionListener="#{counterBean.plus}"
                              update="msgs, clable"/>
